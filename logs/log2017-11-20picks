@@ -1,0 +1,423 @@
+List of Bull Stocks
+ ===================
+['MSFT', 'URI', 'PHM', 'DVN', 'INTC', 'GOOGL', 'MNST', 'DG', 'GOOG', 'ADBE']
+
+List of Bear Stocks
+ ===================
+['PM', 'PCG', 'ALXN', 'EXPE', 'TRIP', 'LUV', 'UAL', 'MNK', 'AGN', 'PCLN']
+
+========================================
+
+MSFT Price Details:
+{'attrib': 83207312: 0,0, 'price': 82.4, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x0501F730>}
+{'attrib': 83207408: 0,0, 'price': 82.56, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x0501F730>}
+{'attrib': 83207344: 0,0, 'price': 82.31, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x0501F730>}
+{'attrib': 83208016: 0,0, 'price': 82.4, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x0501F730>}
+{'attrib': 83207920: 0,0, 'price': 82.4, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x0501F730>}
+Contract Details:
+Spread Combo price for MSFT is too low.
+========================================
+
+URI Price Details:
+{'attrib': 20125232: 0,0, 'price': 150.02, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F34410>}
+{'attrib': 16155824: 0,0, 'price': 151.15, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F34410>}
+{'attrib': 16155792: 0,0, 'price': 149.75, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F34410>}
+{'attrib': 16155760: 0,0, 'price': 150.09, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F34410>}
+{'attrib': 16155728: 0,0, 'price': 149.75, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F34410>}
+{'attrib': 16155696: 1,0, 'price': 149.79, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F34410>}
+{'attrib': 20124496: 1,0, 'price': 150.19, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F34410>}
+Contract Details:
+URI - Price: $ 150.02 - Sell a 20171201  152.50/ 146.50 Put Spread - Limit price: $ 3.00 - Combo delta: 0.289
+Getting orderid from IB
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfuture
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ilhmds
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ushmds
+IB error id -1 errorcode 2108 string Market data farm connection is inactive but should be available upon demand.usopt.us
+IB error id -1 errorcode 2108 string Market data farm connection is inactive but should be available upon demand.usopt.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt.us
+Using order id of 520
+Getting orderid from IB
+Using order id of 521
+Getting orderid from IB
+Using order id of 522
+========================================
+
+PHM Price Details:
+{'attrib': 15987888: 0,0, 'price': 32.58, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x050802B0>}
+{'attrib': 83297296: 0,0, 'price': 32.27, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x050802B0>}
+{'attrib': 83983536: 0,0, 'price': 32.58, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x050802B0>}
+{'attrib': 83981104: 0,0, 'price': 32.25, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x050802B0>}
+{'attrib': 83983792: 0,0, 'price': 32.25, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x050802B0>}
+{'attrib': 83981392: 1,0, 'price': 32.58, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x050802B0>}
+{'attrib': 83983184: 1,0, 'price': 32.59, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x050802B0>}
+Contract Details:
+PHM - Price: $  32.58 - Sell a 20171201   33.00/  32.00 Put Spread - Limit price: $ 0.50 - Combo delta: 0.264
+Getting orderid from IB
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfuture
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ilhmds
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ushmds
+IB error id 1033 errorcode 200 string The contract description specified for PHM is ambiguous;
+you must specify the currency.
+Using order id of 523
+Getting orderid from IB
+Using order id of 524
+Getting orderid from IB
+Using order id of 525
+========================================
+
+DVN Price Details:
+{'attrib': 83146768: 0,0, 'price': 37.72, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B8F0>}
+{'attrib': 20798384: 0,0, 'price': 38.37, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B8F0>}
+{'attrib': 20798992: 0,0, 'price': 37.7, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B8F0>}
+{'attrib': 20799024: 0,0, 'price': 38.68, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B8F0>}
+{'attrib': 20799056: 0,0, 'price': 38.34, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B8F0>}
+{'attrib': 20799088: 1,0, 'price': 37.71, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B8F0>}
+{'attrib': 20799184: 1,0, 'price': 37.73, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B8F0>}
+Contract Details:
+DVN - Price: $  37.72 - Sell a 20171201   38.00/  36.00 Put Spread - Limit price: $ 1.00 - Combo delta: 0.320
+Getting orderid from IB
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfuture
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ilhmds
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ushmds
+IB error id 1033 errorcode 200 string The contract description specified for DVN is ambiguous;
+you must specify the currency.
+Using order id of 526
+Getting orderid from IB
+Using order id of 527
+Getting orderid from IB
+Using order id of 528
+========================================
+
+INTC Price Details:
+{'attrib': 53916400: 0,0, 'price': 44.7, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B350>}
+{'attrib': 53843056: 0,0, 'price': 44.75, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B350>}
+{'attrib': 53916560: 0,0, 'price': 44.5, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B350>}
+{'attrib': 53916592: 0,0, 'price': 44.63, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B350>}
+{'attrib': 53916624: 0,0, 'price': 44.72, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B350>}
+{'attrib': 53916880: 1,0, 'price': 44.69, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B350>}
+{'attrib': 53917936: 1,0, 'price': 44.7, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04F4B350>}
+Contract Details:
+Spread Combo price for INTC is too low.
+========================================
+
+GOOGL Price Details:
+{'attrib': 83648560: 0,0, 'price': 1037.51, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x033590F0>}
+{'attrib': 83650832: 0,0, 'price': 1037.55, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x033590F0>}
+{'attrib': 83648592: 0,0, 'price': 1034.1, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x033590F0>}
+{'attrib': 83650544: 0,0, 'price': 1035.89, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x033590F0>}
+{'attrib': 83650512: 0,0, 'price': 1036.0, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x033590F0>}
+{'attrib': 83650192: 1,0, 'price': 1036.91, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x033590F0>}
+{'attrib': 101206512: 1,0, 'price': 1038.0, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x033590F0>}
+Contract Details:
+Spread Combo price for GOOGL is too low.
+========================================
+
+MNST Price Details:
+{'attrib': 53842736: 0,0, 'price': 61.44, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FB55F0>}
+{'attrib': 83504496: 0,0, 'price': 61.83, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FB55F0>}
+{'attrib': 83504432: 0,0, 'price': 60.15, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FB55F0>}
+{'attrib': 83504400: 0,0, 'price': 62.17, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FB55F0>}
+{'attrib': 83504944: 0,0, 'price': 60.54, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FB55F0>}
+{'attrib': 20282128: 1,0, 'price': 61.42, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FB55F0>}
+{'attrib': 83975152: 1,0, 'price': 61.45, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FB55F0>}
+Contract Details:
+No option prices available for MNST at this time.
+========================================
+
+DG Price Details:
+{'attrib': 83135184: 0,0, 'price': 86.48, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA190>}
+{'attrib': 83822640: 0,0, 'price': 86.59, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA190>}
+{'attrib': 83065200: 0,0, 'price': 85.77, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA190>}
+{'attrib': 83064080: 0,0, 'price': 85.5, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA190>}
+{'attrib': 83064752: 0,0, 'price': 85.77, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA190>}
+{'attrib': 83063216: 1,0, 'price': 86.43, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA190>}
+{'attrib': 83064272: 1,0, 'price': 86.5, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA190>}
+{'attrib': 83328272: 1,0, 'price': 86.51, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA190>}
+Contract Details:
+DG - Price: $  86.48 - Sell a 20171201   88.50/  84.00 Put Spread - Limit price: $ 2.25 - Combo delta: 0.315
+Getting orderid from IB
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfuture
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ilhmds
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ushmds
+IB error id 1033 errorcode 200 string The contract description specified for DG is ambiguous;
+you must specify the currency.
+Using order id of 529
+Getting orderid from IB
+Using order id of 530
+Getting orderid from IB
+Using order id of 531
+========================================
+
+GOOG Price Details:
+{'attrib': 53742640: 0,0, 'price': 1022.17, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA930>}
+{'attrib': 53742576: 0,0, 'price': 1022.2, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA930>}
+{'attrib': 53742416: 0,0, 'price': 1018.11, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA930>}
+{'attrib': 53739760: 0,0, 'price': 1019.09, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA930>}
+{'attrib': 53742384: 0,0, 'price': 1020.26, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA930>}
+{'attrib': 53739728: 1,0, 'price': 1021.92, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA930>}
+{'attrib': 53742320: 1,0, 'price': 1022.74, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x04FFA930>}
+Contract Details:
+GOOG - Price: $1022.17 - Sell a 20171201 1030.00/1007.50 Put Spread - Limit price: $11.25 - Combo delta: 0.294
+Getting orderid from IB
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfuture
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ilhmds
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ushmds
+Using order id of 532
+Getting orderid from IB
+Using order id of 533
+Getting orderid from IB
+Using order id of 534
+========================================
+
+ADBE Price Details:
+{'attrib': 102302224: 0,0, 'price': 182.5, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x060E4D10>}
+{'attrib': 102303728: 0,0, 'price': 183.43, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x060E4D10>}
+{'attrib': 102303664: 0,0, 'price': 182.5, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x060E4D10>}
+{'attrib': 102303856: 0,0, 'price': 182.24, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x060E4D10>}
+{'attrib': 102303920: 0,0, 'price': 182.8, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x060E4D10>}
+{'attrib': 102304016: 1,0, 'price': 182.46, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x060E4D10>}
+{'attrib': 102304112: 1,0, 'price': 182.6, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x060E4D10>}
+Contract Details:
+ADBE - Price: $ 182.50 - Sell a 20171201  185.00/ 180.00 Put Spread - Limit price: $ 2.50 - Combo delta: 0.317
+Getting orderid from IB
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfuture
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ilhmds
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ushmds
+Using order id of 535
+Getting orderid from IB
+Using order id of 536
+Getting orderid from IB
+Using order id of 537
+========================================
+
+PM Price Details:
+{'attrib': 102620912: 0,0, 'price': 103.11, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061CA3B0>}
+{'attrib': 102620976: 0,0, 'price': 103.21, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061CA3B0>}
+{'attrib': 102621136: 0,0, 'price': 102.57, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061CA3B0>}
+{'attrib': 102708592: 0,0, 'price': 102.64, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061CA3B0>}
+{'attrib': 102709328: 0,0, 'price': 102.66, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061CA3B0>}
+{'attrib': 102710128: 1,0, 'price': 103.09, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061CA3B0>}
+{'attrib': 102728016: 1,0, 'price': 103.11, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061CA3B0>}
+Contract Details:
+PM - Price: $ 103.11 - Sell a 20171201  102.00/ 104.00 Call Spread - Limit price: $ 1.00 - Combo delta: 0.282
+Getting orderid from IB
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfuture
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ilhmds
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ushmds
+IB error id 1033 errorcode 200 string The contract description specified for PM is ambiguous;
+you must specify the currency.
+Using order id of 538
+Getting orderid from IB
+Using order id of 539
+Getting orderid from IB
+Using order id of 540
+========================================
+
+PCG Price Details:
+{'attrib': 102847536: 0,0, 'price': 53.71, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06250C30>}
+{'attrib': 102909936: 0,0, 'price': 54.23, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06250C30>}
+{'attrib': 102909584: 0,0, 'price': 53.44, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06250C30>}
+{'attrib': 102909552: 0,0, 'price': 54.0, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06250C30>}
+{'attrib': 102909520: 0,0, 'price': 54.04, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06250C30>}
+{'attrib': 102909488: 1,0, 'price': 53.71, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06250C30>}
+{'attrib': 102909392: 1,0, 'price': 53.77, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06250C30>}
+Contract Details:
+PCG - Price: $  53.71 - Sell a 20171201   53.00/  54.50 Call Spread - Limit price: $ 0.75 - Combo delta: 0.267
+Getting orderid from IB
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfuture
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ilhmds
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ushmds
+IB error id 1033 errorcode 200 string The contract description specified for PCG is ambiguous;
+you must specify the currency.
+Using order id of 541
+Getting orderid from IB
+Using order id of 542
+Getting orderid from IB
+Using order id of 543
+========================================
+
+ALXN Price Details:
+{'attrib': 83734896: 0,0, 'price': 109.76, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228850>}
+{'attrib': 102114640: 0,0, 'price': 111.0, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228850>}
+{'attrib': 102115344: 0,0, 'price': 109.41, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228850>}
+{'attrib': 102114544: 0,0, 'price': 110.87, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228850>}
+{'attrib': 102114512: 0,0, 'price': 110.52, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228850>}
+{'attrib': 102114576: 1,0, 'price': 109.71, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228850>}
+{'attrib': 102115312: 1,0, 'price': 109.88, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228850>}
+Contract Details:
+No option prices available for ALXN at this time.
+========================================
+
+EXPE Price Details:
+{'attrib': 83132784: 0,0, 'price': 124.64, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F3C6B0>}
+{'attrib': 83136368: 0,0, 'price': 124.83, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F3C6B0>}
+{'attrib': 83136496: 0,0, 'price': 124.01, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F3C6B0>}
+{'attrib': 83134512: 0,0, 'price': 123.95, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F3C6B0>}
+{'attrib': 83133776: 0,0, 'price': 124.3, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F3C6B0>}
+{'attrib': 102067696: 1,0, 'price': 124.58, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F3C6B0>}
+{'attrib': 102065264: 1,0, 'price': 124.69, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F3C6B0>}
+{'attrib': 101807280: 1,0, 'price': 124.68, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x00F3C6B0>}
+Contract Details:
+Spread Combo price for EXPE is too low.
+========================================
+
+TRIP Price Details:
+{'attrib': 103173104: 0,0, 'price': 30.61, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298B10>}
+{'attrib': 103179088: 0,0, 'price': 30.92, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298B10>}
+{'attrib': 103181904: 0,0, 'price': 30.27, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298B10>}
+{'attrib': 103179024: 0,0, 'price': 30.59, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298B10>}
+{'attrib': 103181872: 0,0, 'price': 30.51, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298B10>}
+{'attrib': 103181104: 1,0, 'price': 30.6, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298B10>}
+{'attrib': 103180976: 1,0, 'price': 30.62, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298B10>}
+Contract Details:
+Spread Combo price for TRIP is too low.
+========================================
+
+LUV Price Details:
+{'attrib': 83033104: 0,0, 'price': 54.62, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061171F0>}
+{'attrib': 83033392: 0,0, 'price': 54.92, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061171F0>}
+{'attrib': 83030576: 0,0, 'price': 54.61, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061171F0>}
+{'attrib': 83030896: 0,0, 'price': 54.71, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061171F0>}
+{'attrib': 83030384: 0,0, 'price': 54.85, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061171F0>}
+{'attrib': 83030992: 1,0, 'price': 54.61, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061171F0>}
+{'attrib': 83063504: 1,0, 'price': 54.64, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x061171F0>}
+Contract Details:
+LUV - Price: $  54.62 - Sell a 20171201   54.00/  56.00 Call Spread - Limit price: $ 1.00 - Combo delta: 0.329
+Getting orderid from IB
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfuture
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ilhmds
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ushmds
+Using order id of 544
+Getting orderid from IB
+Using order id of 545
+Getting orderid from IB
+Using order id of 546
+========================================
+
+UAL Price Details:
+{'attrib': 101841648: 0,0, 'price': 58.1, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298350>}
+{'attrib': 102730640: 0,0, 'price': 58.26, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298350>}
+{'attrib': 82981488: 0,0, 'price': 57.82, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298350>}
+{'attrib': 82981808: 0,0, 'price': 58.2, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298350>}
+{'attrib': 82982800: 0,0, 'price': 58.26, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298350>}
+{'attrib': 82981968: 1,0, 'price': 58.09, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298350>}
+{'attrib': 82984304: 1,0, 'price': 58.12, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298350>}
+{'attrib': 83598320: 0,0, 'price': 58.11, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06298350>}
+Contract Details:
+UAL - Price: $  58.11 - Sell a 20171201   57.00/  59.00 Call Spread - Limit price: $ 1.00 - Combo delta: 0.266
+Getting orderid from IB
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfuture
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ilhmds
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ushmds
+Using order id of 547
+Getting orderid from IB
+Using order id of 548
+Getting orderid from IB
+Using order id of 549
+========================================
+
+MNK Price Details:
+{'attrib': 83175216: 0,0, 'price': 21.99, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x062988D0>}
+{'attrib': 83176368: 0,0, 'price': 22.35, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x062988D0>}
+{'attrib': 83173616: 0,0, 'price': 21.95, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x062988D0>}
+{'attrib': 83174992: 0,0, 'price': 22.38, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x062988D0>}
+{'attrib': 83174480: 0,0, 'price': 22.29, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x062988D0>}
+{'attrib': 16046320: 1,0, 'price': 21.95, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x062988D0>}
+{'attrib': 16047952: 1,0, 'price': 22.04, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x062988D0>}
+Contract Details:
+MNK - Price: $  21.99 - Sell a 20171201   21.50/  23.50 Call Spread - Limit price: $ 1.00 - Combo delta: 0.342
+Getting orderid from IB
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfuture
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ilhmds
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ushmds
+Using order id of 550
+Getting orderid from IB
+Using order id of 551
+Getting orderid from IB
+Using order id of 552
+========================================
+
+AGN Price Details:
+{'attrib': 53783472: 0,0, 'price': 173.34, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x03370990>}
+{'attrib': 53783184: 0,0, 'price': 175.24, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x03370990>}
+{'attrib': 102908976: 0,0, 'price': 173.27, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x03370990>}
+{'attrib': 102909040: 0,0, 'price': 174.88, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x03370990>}
+{'attrib': 102911984: 0,0, 'price': 174.75, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x03370990>}
+{'attrib': 102911888: 1,0, 'price': 173.16, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x03370990>}
+{'attrib': 102853136: 1,0, 'price': 173.48, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x03370990>}
+Contract Details:
+AGN - Price: $ 173.34 - Sell a 20171201  170.00/ 177.50 Call Spread - Limit price: $ 3.75 - Combo delta: 0.354
+Getting orderid from IB
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfuture
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm.us
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usopt
+IB error id -1 errorcode 2104 string Market data farm connection is OK:usfarm
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ilhmds
+IB error id -1 errorcode 2106 string HMDS data farm connection is OK:ushmds
+IB error id 1033 errorcode 200 string The contract description specified for AGN is ambiguous;
+you must specify the currency.
+Using order id of 553
+Getting orderid from IB
+Using order id of 554
+Getting orderid from IB
+IB error id 554 errorcode 110 string The price does not conform to the minimum price variation for this contract.
+Using order id of 555
+========================================
+
+PCLN Price Details:
+{'attrib': 103166896: 0,0, 'price': 1763.9, 'tickType': 4, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228A30>}
+{'attrib': 103167152: 0,0, 'price': 1763.9, 'tickType': 6, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228A30>}
+{'attrib': 103166832: 0,0, 'price': 1747.88, 'tickType': 7, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228A30>}
+{'attrib': 103169968: 0,0, 'price': 1747.22, 'tickType': 9, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228A30>}
+{'attrib': 103169392: 0,0, 'price': 1750.99, 'tickType': 14, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228A30>}
+{'attrib': 103169232: 1,0, 'price': 1762.82, 'tickType': 1, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228A30>}
+{'attrib': 103169296: 1,0, 'price': 1765.0, 'tickType': 2, 'reqId': 1032, 'self': <IBapiMod.TestApp object at 0x06228A30>}
+Contract Details:
+No option prices available for PCLN at this time.
+
+Process finished with exit code 0
