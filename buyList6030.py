@@ -1,14 +1,21 @@
 from IBapiMod import *
-import logging
 
-def buyList6030(bullList, bearList):
+
+def buyList6030(bullList, bearList, budget=500):
 
     for s in bullList:
-        app = TestApp("127.0.0.1", 7401, 1)
-        app.buy6030(s)
-        app.disconnect()
+        for i in range(1,5):
+            app = TestApp("127.0.0.1", 7401, 1)
+            success = app.buy6030(s,budget=budget)
+            app.disconnect()
+            if success:
+                break
 
     for s in bearList:
-        app = TestApp("127.0.0.1", 7401, 1)
-        app.buy6030(s,"Bear")
-        app.disconnect()
+        for i in range(1,5):
+            app = TestApp("127.0.0.1", 7401, 1)
+            success = app.buy6030(s,"Bear",budget=budget)
+            app.disconnect()
+            if success:
+                break
+

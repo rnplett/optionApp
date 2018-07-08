@@ -310,6 +310,7 @@ class TestWrapper(EWrapper):
         self._my_executions_stream = queue.Queue()
         self._my_commission_stream = queue.Queue()
         self._my_open_orders = queue.Queue()
+        self._my_positions = queue.Queue()
         self._my_errors = queue.Queue()
 
     ## error handling code
@@ -334,6 +335,13 @@ class TestWrapper(EWrapper):
         ## Overriden method
         errormsg = "IB error id %d errorcode %d string %s" % (id, errorCode, errorString)
         self._my_errors.put(errormsg)
+
+    def position(self, account:str, contract:IBcontract, position:float,
+                 avgCost:float):
+        """This event returns real-time positions for all accounts in
+        response to the reqPositions() method."""
+
+        self._my_positions.put(vars())
 
     ## get price data
     def init_pricedetails(self, reqId):
@@ -898,7 +906,48 @@ class TestApp(TestWrapper, TestClient):
             except:
                 pass
 
-    def buy6030(self, sym, direction = "Bull", exp = ""):
+    def sellLast(self, orderInfo):
+
+        takeProfitLimitPrice = orderInfo.order.lmtPrice
+        contract3 = orderInfo.contract
+        self.reqMktData(1032, contract3, "", False, False, [])
+        time.sleep(3)
+        lastPrice = None
+        try:
+            for k in list(self._my_price_details[1032].queue):
+                t = dict(k)
+                if t['tickType'] == 4:
+                    lastPrice = t['price']
+                if t['tickType'] == 9 and lastPrice == None:
+                    lastPrice = t['price']
+                print(t)
+                takeProfitLimitPrice = lastPrice
+                takeProfit = orderInfo.order
+                takeProfit.lmtPrice = takeProfitLimitPrice
+                takeProfit.transmit = True
+                self.place_new_IB_order(contract3, takeProfit, orderid=takeProfit.orderId)
+        except:
+            print("No pricing available for {} at this time.".format(contract3.symbol))
+
+    def quote(self, c):
+        self.reqMktData(1032, c, "", False, False, [])
+        time.sleep(5)
+        lastPrice = None
+        try:
+            for k in list(self._my_price_details[1032].queue):
+                t = dict(k)
+                if t['tickType'] == 4:
+                    lastPrice = t['price']
+                if t['tickType'] == 9 and lastPrice == None:
+                    lastPrice = t['price']
+                print(t)
+        except:
+            print("Price is not currently available")
+            return None
+        return lastPrice
+
+
+    def buy6030(self, sym, direction = "Bull", exp = "", budget = 500):
 
         if direction == "Bull":
             right = "Put"
@@ -915,7 +964,7 @@ class TestApp(TestWrapper, TestClient):
         contract1 = IBcontract()
         contract1.secType = "STK"
         contract1.symbol = sym
-        contract1.exchange = "SMART"
+        contract1.exchange = "ISLAND"
 
         contract2 = IBcontract()
         contract2.secType = "OPT"
@@ -925,10 +974,11 @@ class TestApp(TestWrapper, TestClient):
         contract2.right = right
         contract2.multiplier = 100
 
-        #self.reqMarketDataType(2)
         self.reqMktData(1032, contract1, "", False, False, [])
+        contract1.exchange = "SMART"
+        self.reqMktData(1033, contract1, "", False, False, [])
         d = self.reqContractDetails(1202, contract2)
-        time.sleep(5)
+        time.sleep(1)
         #print(d)
 
         print("="*40)
@@ -944,12 +994,21 @@ class TestApp(TestWrapper, TestClient):
                     lastPrice = t['price']
                 print(t)
         except:
-            print("No pricing available for {} at this time.".format(sym))
-            return
+            try:
+                for k in list(self._my_price_details[1033].queue):
+                    t = dict(k)
+                    if t['tickType'] == 4:
+                        lastPrice = t['price']
+                    if t['tickType'] == 9 and lastPrice == None:
+                        lastPrice = t['price']
+                    print(t)
+            except:
+                print("No stock prices available for {} at this time.".format(sym))
+                return False
 
         if lastPrice == None:
-            print("No pricing available for {} at this time.".format(sym))
-            return
+            print("No stock prices available for {} at this time.".format(sym))
+            return False
 
         # print()
         # print("{0} Last Price: ${1:4.2f}".format(sym, lastPrice))
@@ -958,7 +1017,13 @@ class TestApp(TestWrapper, TestClient):
         rID = 1100
         df = DataFrame()
         print("Contract Details:")
-        for k in list(self._my_contract_details[1202].queue):
+        try:
+            cDetails = self._my_contract_details[1202].queue
+        except:
+            print("Contract details for {} are not available at this time.".format(sym))
+            self.contractDetailsEnd(1202)
+            return False
+        for k in list(cDetails):
             t = list(str(k).split(','))
             # print(t)
             try:
@@ -977,6 +1042,10 @@ class TestApp(TestWrapper, TestClient):
                     rID = rID + 1
             except:
                 pass
+        if rID == 1100:
+            print("No option prices available for {} at this time.".format(sym))
+            return False
+
         df = df.transpose()
         # print(df)
         # print("Getting option details for {0:2d} strikes:".format(len(df)))
@@ -985,23 +1054,29 @@ class TestApp(TestWrapper, TestClient):
         time.sleep(1)
 
         df['undPrice'] = [""] * len(df)
+        df['optPrice'] = [""] * len(df)
         df['delta'] = [""] * len(df)
         df['strike'] = [""] * len(df)
         df['delta60'] = [""] * len(df)
         for s in df.index:
-            self.cancelMktData(s)
-            for k in list(self._my_option_data[s].queue):
-                t = dict(k)
-                # print(s,t)
-                if t['delta']:
-                    try:
-                        df.loc[s, 'conId'] = int(df.loc[s, 0])
-                        df.loc[s, 'strike'] = float(df.loc[s, 4])
-                        df.loc[s, 'undPrice'] = t['undPrice']
-                        df.loc[s, 'delta'] = abs(t['delta'])
-                        df.loc[s, 'delta60'] = abs(abs(t['delta']) - 0.60)
-                    except:
-                        pass
+            #self.cancelMktData(s)
+            try:
+                for k in list(self._my_option_data[s].queue):
+                    t = dict(k)
+                    #print(s,t)
+                    if t['delta']:
+                        try:
+                            df.loc[s, 'conId'] = int(df.loc[s, 0])
+                            df.loc[s, 'strike'] = float(df.loc[s, 4])
+                            df.loc[s, 'undPrice'] = t['undPrice']
+                            df.loc[s, 'optPrice'] = t['optPrice']
+                            df.loc[s, 'delta'] = abs(t['delta'])
+                            df.loc[s, 'delta60'] = abs(abs(t['delta']) - 0.60)
+                        except:
+                            pass
+            except:
+                print("No option prices available for {} at this time.".format(sym))
+                return False
 
         # print(df.loc[:,['conId',3,'strike','undPrice','delta','delta60']].sort_values(['strike']))
         # print()
@@ -1021,12 +1096,22 @@ class TestApp(TestWrapper, TestClient):
         # Order variables
         #####
         cdelta = df.delta[d60] - df.delta[d30]
-        lim = abs(df.strike[d60] - df.strike[d30]) * 0.40
-        takeProfitLimitPrice = lim * 0.3
-        stopLossPrice = lim * 1.75
-        quantity = 1
+        lim = abs(df.strike[d60] - df.strike[d30]) * 0.35
+        try:
+            cOptPrice = df.optPrice[d60] - df.optPrice[d30]
+            if abs(cOptPrice) < abs(lim*0.95):
+                print("Spread Combo price for {} is too low.".format(sym))
+                return True
+            quantity = int(budget / 100 / cOptPrice)
+            if quantity == 0:
+                print("Spread Combo for {} is above the budget of ${}".format(sym,budget))
+                return True
+        except:
+            quantity = 1
+        takeProfitLimitPrice = lim * 0.
+        stopLossPrice = lim * 1.50
         action = "SELL"
-        parentOrderId = 101
+        #parentOrderId = 101
 
         # print("Buy a {} with the  {:7.2f} strike ".format(right,df.strike[d30]))
         # print("Combo delta is {:5.3f}".format(cdelta))
@@ -1095,5 +1180,11 @@ class TestApp(TestWrapper, TestClient):
         # to activate all its predecessors
         stopLoss.transmit = True
         self.place_new_IB_order(contract3, stopLoss, orderid=None)
+        time.sleep(1)
+        return True
+
+    def tradeReport(self):
+        self.commissionReport('Feb12')
+
 
 
