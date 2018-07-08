@@ -1,6 +1,6 @@
 import pandas as pd
 
-from .input.settings import *
+from inputs.settings import *
 import quandl
 import pymongo
 
@@ -165,12 +165,14 @@ if __name__=='__main__':
 
     bull = data[data.Weekly_MA == "Bull"]
     print()
-    print("List of Bull Stocks \n===================")
-    print(bull.loc[:,["Symbol","Squeeze"]].sort_values(by='Squeeze', ascending=False))
+    print("List of Bull Stocks with a Squeeze \n=================================")
+    t = bull.loc[:,["Symbol","Squeeze"]].sort_values(by='Squeeze', ascending=False)
+    print(t[t.Squeeze > 0])
     print()
 
     bear = data[data.Weekly_MA == "Bear"]
     print()
-    print("List of Bear Stocks \n===================")
-    print(bear.loc[:,["Symbol","Squeeze"]].sort_values(by='Squeeze', ascending=False))
+    print("List of Bear Stocks with a Squeeze\n=================================")
+    t = bear.loc[:,["Symbol","Squeeze"]].sort_values(by='Squeeze', ascending=False)
+    print(t[t.Squeeze > 0])
     print()
