@@ -6,12 +6,21 @@ from buyList6030 import buyList6030
 from datetime import datetime, time
 from time import sleep
 
+<<<<<<< HEAD
 # runTime = "7:35"
 # startTime = time(*(map(int, runTime.split(':'))))
 # while startTime > datetime.today().time():  # you can add here any additional variable to break loop if necessary
 #         sleep(1)  # you can change 1 sec interval to any other
 #
 # print("and so it begins at {}".format(datetime.now()))
+=======
+runTime = "7:35"
+startTime = time(*(map(int, runTime.split(':'))))
+while startTime > datetime.today().time():  # you can add here any additional variable to break loop if necessary
+        sleep(1)  # you can change 1 sec interval to any other
+
+print("and so it begins at {}".format(datetime.now()))
+>>>>>>> d38fa26557c9d8d24a3c95e4e938a4d73c0c7188
 
 # Mac file system
 # bullWatchList = pd.read_csv('/Users/rolandplett/GoogleDrive/Very Bullish Stocks.csv', header=None)
@@ -29,9 +38,15 @@ symbolList = pd.read_csv('C:\\Users\\Roland\\Google Drive\\symbolListSP500.csv')
 if len(symbolList) < 2:
     symbolList = symbolList.transpose()
 symbolList = pd.DataFrame(symbolList.loc[:,'Symbol'].astype('str'))
+<<<<<<< HEAD
 #print(symbolList)
 symbolList = symbolList.sort_values(["Symbol"])
 #print(symbolList)
+=======
+print(symbolList)
+symbolList = symbolList.sort_values(["Symbol"])
+print(symbolList)
+>>>>>>> d38fa26557c9d8d24a3c95e4e938a4d73c0c7188
 
 f = open('C:\\Users\\Roland\\Google Drive\\TodaysPicks.csv','w')
 #f = open('D:\\Users\\roland.plett\\Google Drive\\TodaysPicks.csv','w')
@@ -56,7 +71,11 @@ def filterMA(a):
     # check bull status
     wBull = close0 > ma8w > ma21w
     dBull = ma8 > ma21 > ma55
+<<<<<<< HEAD
     pBull = (ma8 > close0 > ma21) & (close0 > 20)
+=======
+    pBull = (close0 > ma21) & (close0 > 20)
+>>>>>>> d38fa26557c9d8d24a3c95e4e938a4d73c0c7188
     if wBull:
         wStatus = "Bull"
     if wBull & dBull & pBull:
@@ -65,7 +84,11 @@ def filterMA(a):
     # check bear status
     wBear = close0 < ma8w < ma21w
     dBear = ma8 < ma21 < ma55
+<<<<<<< HEAD
     pBear = ma8 < close0 < ma21
+=======
+    pBear = 20 < close0 < ma21
+>>>>>>> d38fa26557c9d8d24a3c95e4e938a4d73c0c7188
     if wBear:
         wStatus = "Bear"
     if wBear & dBear & pBear:
@@ -115,8 +138,12 @@ if __name__=='__main__':
 
     f.close()
 
+<<<<<<< HEAD
     data = pd.read_csv('C:\\Users\\Roland\\Google Drive\\TodaysPicks.csv')
     #data = pd.read_csv('D:\\Users\\roland.plett\\Google Drive\\TodaysPicks.csv')
+=======
+    data = pd.read_csv('D:\\Users\\roland.plett\\Google Drive\\TodaysPicks.csv')
+>>>>>>> d38fa26557c9d8d24a3c95e4e938a4d73c0c7188
     data.All_MA = data.All_MA.str.strip()
 
     if len(data[data.All_MA == "Bull"])*2 > stocksPerDay:
