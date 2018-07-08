@@ -6,26 +6,12 @@ from buyList6030 import buyList6030
 from datetime import datetime, time
 from time import sleep
 
-# runTime = "7:35"
-# startTime = time(*(map(int, runTime.split(':'))))
-# while startTime > datetime.today().time():  # you can add here any additional variable to break loop if necessary
-#         sleep(1)  # you can change 1 sec interval to any other
-#
-# print("and so it begins at {}".format(datetime.now()))
-
-# Mac file system
-# bullWatchList = pd.read_csv('/Users/rolandplett/GoogleDrive/Very Bullish Stocks.csv', header=None)
-# bearWatchList = pd.read_csv('/Users/rolandplett/GoogleDrive/Very Bearish Stocks.csv', header=None)
-# f = open('/Users/rolandplett/GoogleDrive/weekliesMAWatchList.csv','w')
-# tv = open('/Users/rolandplett/GoogleDrive/weekliesMAWatchList.csv','w')
-#
 # Windows file system
 weeklies = pd.ExcelFile('http://www.cboe.com/publish/weelkysmf/weeklysmf.xls')
 w1 = weeklies.parse(weeklies.sheet_names[0])
 
 # Update from https://datahub.io/core/s-and-p-500-companies/r/constituents.csv
-symbolList = pd.read_csv('C:\\Users\\Roland\\Google Drive\\symbolListSP500.csv')
-#symbolList = pd.read_csv('D:\\Users\\roland.plett\\Google Drive\\symbolListSP500.csv')
+symbolList = pd.read_csv('inputs\\symbolListSP500.csv')
 if len(symbolList) < 2:
     symbolList = symbolList.transpose()
 symbolList = pd.DataFrame(symbolList.loc[:,'Symbol'].astype('str'))
@@ -33,8 +19,7 @@ symbolList = pd.DataFrame(symbolList.loc[:,'Symbol'].astype('str'))
 symbolList = symbolList.sort_values(["Symbol"])
 #print(symbolList)
 
-f = open('C:\\Users\\Roland\\Google Drive\\TodaysPicks.csv','w')
-#f = open('D:\\Users\\roland.plett\\Google Drive\\TodaysPicks.csv','w')
+f = open('outputs\\TodaysPicks.csv','w')
 
 stocksPerDay = 20
 
@@ -115,31 +100,4 @@ if __name__=='__main__':
 
     f.close()
 
-<<<<<<< HEAD
-    data = pd.read_csv('C:\\Users\\Roland\\Google Drive\\TodaysPicks.csv')
-    #data = pd.read_csv('D:\\Users\\roland.plett\\Google Drive\\TodaysPicks.csv')
-=======
-    data = pd.read_csv('D:\\Users\\roland.plett\\Google Drive\\TodaysPicks.csv')
->>>>>>> d38fa26557c9d8d24a3c95e4e938a4d73c0c7188
-    data.All_MA = data.All_MA.str.strip()
-
-    if len(data[data.All_MA == "Bull"])*2 > stocksPerDay:
-        bull = data[data.All_MA == "Bull"].sample(int(stocksPerDay/2))
-    else:
-        bull = data[data.All_MA == "Bull"]
-    bullList = [str.strip(str(s)) for s in bull.Symbol]
-    print()
-    print("List of Bull Stocks \n ===================")
-    print(bullList)
-
-    if len(data[data.All_MA == "Bear"]) * 2 > stocksPerDay:
-        bear = data[data.All_MA == "Bear"].sample(int(stocksPerDay/2))
-    else:
-        bear = data[data.All_MA == "Bear"]
-    print()
-    bearList = [str.strip(str(s)) for s in bear.Symbol]
-    print("List of Bear Stocks \n ===================")
-    print(bearList)
-    print()
-
-    buyList6030(bullList, bearList, 500)
+    data = pd.read_csv('outputs\\TodaysPicks.csv')

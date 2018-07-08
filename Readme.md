@@ -1,5 +1,7 @@
 ## Financial market libraries
 
+NOTE: I just reorganized my folders and broke a number of paths that need fixing. Please consider these scripts as educational and not a library to use out of the box.
+
 The libraries in this repo are a combination of code I've found in other repos and my own. Once they start generating a lot of income for me I may keep them a little more privately but I hope they can be helpful for people who are dabbling in python automation of trading activities.
 
 #### API libraries

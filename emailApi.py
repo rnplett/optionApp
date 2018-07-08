@@ -4,9 +4,9 @@ from email.mime.text import MIMEText
 
 
 def textRoland(title, message):
-    MY_ADDRESS = 'rolandPyPlett@gmail.com'
-    PASSWORD = 'R01andpl3'
-    email = '4034615578@sms.rogers.com'
+    MY_ADDRESS = <<gmail email>>
+    PASSWORD = <<gmail password>>
+    email = <<SMS alert email>>
 
     s = smtplib.SMTP(host='smtp.gmail.com', port=587)
     s.starttls()

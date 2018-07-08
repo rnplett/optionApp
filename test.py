@@ -37,7 +37,7 @@ print("and so it begins at {}".format(datetime.now()))
 
 #textRoland("Message at 10:15", "This is the body")
 
-SHEETID = "1aZwZQ-KtXr-7_9ZYIZxMano85zckb86gj67kcwQczYI"
+SHEETID = <<SheetID>>
 # RANGE = "Trades!A1"
 # sheetData = [["Expiry1","Symbol","Strike1","Strike2","Right","Position","CostBase","UnitCost","UnitPrice","Gain"]]
 # updateValues(SHEETID,RANGE,sheetData)

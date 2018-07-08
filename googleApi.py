@@ -24,7 +24,7 @@ except ImportError:
 # If modifying these scopes, delete your previously saved credentials
 # at ~/.credentials/sheets.googleapis.com-python-quickstart.json
 SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
-CLIENT_SECRET_FILE = 'stockDash-604bfd160091.json'
+CLIENT_SECRET_FILE = 'inputs\\stockDash-604bfd160091.json'
 APPLICATION_NAME = 'Google Sheets API Python Quickstart'
 
 

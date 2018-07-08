@@ -12,8 +12,8 @@ logging.basicConfig(level=logging.WARNING)
 
 app = TestApp("127.0.0.1", 7410, 1)
 
-SHEETID = "1aZwZQ-KtXr-7_9ZYIZxMano85zckb86gj67kcwQczYI"
-GID = "503284115"
+SHEETID = <<sheetID>>
+GID = <<GID>>
 RANGE = "Spreads!A7"
 
 credentials = g.service_account.Credentials.from_service_account_file(
@@ -208,6 +208,3 @@ r = g.updateValues(authed_session,SHEETID,"Spreads!C4",table.values.tolist())
 print(r)
 
 f.close()
-
-
-
