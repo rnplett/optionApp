@@ -1,5 +1,6 @@
+__pycache__
+.idea
 inputs
 logs
 venv
 archive
-__pycache__

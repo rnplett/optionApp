@@ -1004,19 +1004,11 @@ class TestApp(TestWrapper, TestClient):
                     print(t)
             except:
                 print("No stock prices available for {} at this time.".format(sym))
-<<<<<<< HEAD
-                return False
-
-        if lastPrice == None:
-            print("No stock prices available for {} at this time.".format(sym))
-            return False
-=======
                 return
 
         if lastPrice == None:
             print("No stock prices available for {} at this time.".format(sym))
             return
->>>>>>> d38fa26557c9d8d24a3c95e4e938a4d73c0c7188
 
         # print()
         # print("{0} Last Price: ${1:4.2f}".format(sym, lastPrice))
@@ -1029,12 +1021,7 @@ class TestApp(TestWrapper, TestClient):
             cDetails = self._my_contract_details[1202].queue
         except:
             print("Contract details for {} are not available at this time.".format(sym))
-<<<<<<< HEAD
-            self.contractDetailsEnd(1202)
-            return False
-=======
             return
->>>>>>> d38fa26557c9d8d24a3c95e4e938a4d73c0c7188
         for k in list(cDetails):
             t = list(str(k).split(','))
             # print(t)
@@ -1056,11 +1043,7 @@ class TestApp(TestWrapper, TestClient):
                 pass
         if rID == 1100:
             print("No option prices available for {} at this time.".format(sym))
-<<<<<<< HEAD
-            return False
-=======
             return
->>>>>>> d38fa26557c9d8d24a3c95e4e938a4d73c0c7188
 
         df = df.transpose()
         # print(df)
@@ -1092,11 +1075,7 @@ class TestApp(TestWrapper, TestClient):
                             pass
             except:
                 print("No option prices available for {} at this time.".format(sym))
-<<<<<<< HEAD
-                return False
-=======
                 return
->>>>>>> d38fa26557c9d8d24a3c95e4e938a4d73c0c7188
 
         # print(df.loc[:,['conId',3,'strike','undPrice','delta','delta60']].sort_values(['strike']))
         # print()
@@ -1116,16 +1095,11 @@ class TestApp(TestWrapper, TestClient):
         # Order variables
         #####
         cdelta = df.delta[d60] - df.delta[d30]
-<<<<<<< HEAD
         lim = abs(df.strike[d60] - df.strike[d30]) * 0.35
-=======
-        lim = abs(df.strike[d60] - df.strike[d30]) * 0.50
->>>>>>> d38fa26557c9d8d24a3c95e4e938a4d73c0c7188
         try:
             cOptPrice = df.optPrice[d60] - df.optPrice[d30]
             if abs(cOptPrice) < abs(lim*0.95):
                 print("Spread Combo price for {} is too low.".format(sym))
-<<<<<<< HEAD
                 return True
             quantity = int(budget / 100 / cOptPrice)
             if quantity == 0:
@@ -1134,16 +1108,6 @@ class TestApp(TestWrapper, TestClient):
         except:
             quantity = 1
         takeProfitLimitPrice = lim * 0.
-=======
-                return
-            quantity = int(budget / 100 / cOptPrice)
-            if quantity == 0:
-                print("Spread Combo for {} is above the budget of ${}".format(sym,budget))
-                return
-        except:
-            quantity = 1
-        takeProfitLimitPrice = lim * 0.3
->>>>>>> d38fa26557c9d8d24a3c95e4e938a4d73c0c7188
         stopLossPrice = lim * 1.50
         action = "SELL"
         #parentOrderId = 101
@@ -1216,13 +1180,7 @@ class TestApp(TestWrapper, TestClient):
         stopLoss.transmit = True
         self.place_new_IB_order(contract3, stopLoss, orderid=None)
         time.sleep(1)
-<<<<<<< HEAD
         return True
 
     def tradeReport(self):
         self.commissionReport('Feb12')
-
-=======
->>>>>>> d38fa26557c9d8d24a3c95e4e938a4d73c0c7188
-
-
