@@ -1,29 +1,90 @@
 import pandas as pd
-import numpy as np
 
-from buyList6030 import buyList6030
+from .input.settings import *
+import quandl
+import pymongo
 
-from datetime import datetime, time
+from datetime import datetime, time, timedelta
 from time import sleep
 
-# Windows file system
-weeklies = pd.ExcelFile('http://www.cboe.com/publish/weelkysmf/weeklysmf.xls')
-w1 = weeklies.parse(weeklies.sheet_names[0])
+runTime = "5:35"
+startTime = time(*(map(int, runTime.split(':'))))
+while startTime > datetime.today().time():  # you can add here any additional variable to break loop if necessary
+        sleep(1)  # you can change 1 sec interval to any other
 
-# Update from https://datahub.io/core/s-and-p-500-companies/r/constituents.csv
-symbolList = pd.read_csv('inputs\\symbolListSP500.csv')
-if len(symbolList) < 2:
-    symbolList = symbolList.transpose()
-symbolList = pd.DataFrame(symbolList.loc[:,'Symbol'].astype('str'))
-#print(symbolList)
-symbolList = symbolList.sort_values(["Symbol"])
-#print(symbolList)
+print("and so it begins at {}".format(datetime.now()))
 
-f = open('outputs\\TodaysPicks.csv','w')
+quandl.ApiConfig.api_key = QUANDL_API_KEY
+
+#
+#  Establish Weekly option list inside the SP500
+#===========================================================================
+
+w = pd.ExcelFile('http://www.cboe.com/publish/weelkysmf/weeklysmf.xls')
+weeklies = w.parse().iloc[:,[0]]
+weeklies.columns = ['Symbol']
+sp500 = pd.read_csv('https://datahub.io/core/s-and-p-500-companies/r/constituents.csv')
+symbolList = pd.merge(weeklies,sp500).iloc[:,[0]].transpose().values.tolist()[0]
+
+f = open('D:\\Users\\Roland\\Google Drive\\TodaysPicks.csv','w') # Workspaces workstation - Windows 10
 
 stocksPerDay = 20
 
+def bollinger_bands(df, m, n):
+    """
+
+    :param df: pandas.DataFrame
+    :param n:
+    :return: pandas.DataFrame
+    """
+    MA = pd.Series(df['Close'].rolling(n, min_periods=n).mean())
+    MSD = pd.Series(df['Close'].rolling(n, min_periods=n).std())
+    b1 = MA + m*MSD
+    B3 = pd.Series(b1, name='BBU_' + str(n))
+    df = df.join(B3)
+    b1 = MA - m*MSD
+    B4 = pd.Series(b1, name='BBD_' + str(n))
+    df = df.join(B4)
+    return df
+
+def keltner_channel(df, m, n):
+    """Calculate Keltner Channel for given data.
+    true range=max[(high - low), abs(high - previous close), abs (low - previous close)]
+
+    :param df: pandas.DataFrame
+    :param n:
+    :return: pandas.DataFrame
+    """
+    KelChM = pd.Series(df['Close'].rolling(n, min_periods=n).mean(),name='KelChM')
+    r1 = df['High']-df['Low']
+    r2 = (df['High']-df['Close'].shift(1)).abs()
+    r3 = (df['Low']-df['Close'].shift(1)).abs()
+    TR = pd.DataFrame({'r1':r1,'r2':r2, 'r3':r3}).max(axis=1)
+    ATR = pd.Series(TR.rolling(n, min_periods=n).mean())
+    KelChU = pd.Series(KelChM + ATR*m, name='KelChU')
+    KelChD = pd.Series(KelChM - ATR*m, name='KelChD')
+    df = df.join(KelChM)
+    df = df.join(KelChU)
+    df = df.join(KelChD)
+    return df
+
+def squeeze(df):
+    df = bollinger_bands(df,2,20)
+    df = keltner_channel(df,1.5,20)
+    df = df.join(pd.Series((df["BBU_20"] < df["KelChU"]) & (df["BBD_20"] > df["KelChD"]), name='Squeeze'))
+    return(df)
+
+def squeezeLen(df):
+    l = 0
+    for x in range(1,26):
+        if df["Squeeze"].iloc[-x]:
+            l = l + 1
+        else:
+            break
+    return l
+
 def filterMA(a):
+    a = a.sort_values('Date', ascending=False).reset_index(drop=True)
     close0 = a.loc[0, 'Close']
     ma8 = a.loc[0:8, 'Close'].mean()
     ma21 = a.loc[0:21, 'Close'].mean()
@@ -50,14 +111,13 @@ def filterMA(a):
     # check bear status
     wBear = close0 < ma8w < ma21w
     dBear = ma8 < ma21 < ma55
-    pBear = 20 < close0 < ma21
+    pBear = ma8 < close0 < ma21
     if wBear:
         wStatus = "Bear"
     if wBear & dBear & pBear:
         AllStatus = "Bear"
 
     return([AllStatus, stoch8, close0, wStatus])
-
 
 if __name__=='__main__':
 
@@ -68,36 +128,49 @@ if __name__=='__main__':
     t = "Symbol,Price,Weekly_MA,All_MA,Squeeze,TenX,Stochastic\n"
     f.write(t)
 
-    for s in symbolList["Symbol"]:
-        if len(w1[w1[w1.columns[0]] == s]) > 0:
-            # Get Historical Data for current symbol
-            try:
-                p = pd.read_csv('https://finance.google.com/finance/historical?q=' + s + '&output=csv')
-            except:
-                try:
-                    p = pd.read_csv('https://finance.google.com/finance/historical?q=NYSE:' + s + '&output=csv')
-                except:
-                    print(s + " - Google lookup error")
+    #  Calculate the date range for the quandl query
+    # *** today =
+    #
+    base = datetime.today()
+    dateList = [(base - timedelta(days=x)).strftime("%Y-%m-%d") for x in range(0, 200)]
 
-            # Determine the MOVING AVERAGE TREND criteria of "Bull", "Bear" or "No_Trend"
-            # Determine the current STOCHASTIC to identify a recent pullback from the trend.
+    for s in symbolList:
+        try:
+            p = quandl.get_table('SHARADAR/SEP', ticker=s, date=dateList,
+                                       qopts={"columns": ["ticker", "date", "open", "high", "low", "close"]})
+            p.columns = ["Symbol","Date","Open","High","Low","Close"]
+        except:
+            print("Quandl read error")
+        try:
+            r = filterMA(p)
+            p = squeeze(p)
+            sq = squeezeLen(p)
 
-            #### Show MA Analysis Data
-
-            try:
-                r = filterMA(p)
-                wMA = r[3]
-                allMA = r[0]
-                stochastic = r[1]
-                price = r[2]
-                print("{0:<8s}{1:8.2f} {2:<10s}{3:<10s}{4:<10s}{5:<10s}{6:5.2f}".
-                      format(s, price, wMA, allMA, "NA", "NA", stochastic))
-                t = "{0:<8s},{1:8.2f},{2:<10s},{3:<10s},{4:<10s},{5:<10s},{6:5.2f}\n". \
-                    format(s, price, wMA, allMA, "NA", "NA", stochastic)
-                f.write(t)
-            except:
-                print(s + " - data error")
+            wMA = r[3]
+            allMA = r[0]
+            stochastic = r[1]
+            price = r[2]
+            print("{0:<8s}{1:8.2f} {2:<10s}{3:<10s}    {4:}      {5:10s}{6:5.2f}".
+                  format(s, price, wMA, allMA, sq, "NA", stochastic))
+            t = "{0:<8s},{1:8.2f},{2:<10s},{3:<10s},{4:},{5:<10s},{6:5.2f}\n". \
+                format(s, price, wMA, allMA, sq, "   NA", stochastic)
+            f.write(t)
+        except Exception as e:
+            print(s + " - data error: " + str(e))
 
     f.close()
 
-    data = pd.read_csv('outputs\\TodaysPicks.csv')
+    data = pd.read_csv('D:\\Users\\Roland\\Google Drive\\TodaysPicks.csv')
+    data.Weekly_MA = data.Weekly_MA.str.strip()
+
+    bull = data[data.Weekly_MA == "Bull"]
+    print()
+    print("List of Bull Stocks \n===================")
+    print(bull.loc[:,["Symbol","Squeeze"]].sort_values(by='Squeeze', ascending=False))
+    print()
+
+    bear = data[data.Weekly_MA == "Bear"]
+    print()
+    print("List of Bear Stocks \n===================")
+    print(bear.loc[:,["Symbol","Squeeze"]].sort_values(by='Squeeze', ascending=False))
+    print()
