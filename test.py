@@ -4,6 +4,7 @@ import logging
 from buyList6030 import buyList6030
 from googleApi import *
 import pygsheets
+from inputs.settings import *
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -35,18 +36,15 @@ print("and so it begins at {}".format(datetime.now()))
 #buyList6030([],
 #            ['MNK', 'PM', 'GE', 'ED', 'COG', 'PG', 'LLY', 'LRCX', 'CELG', 'PCG'])
 
-#textRoland("Message at 10:15", "This is the body")
+textRoland("Message at 10:15", "This is the body")
 
-SHEETID = <<SheetID>>
 # RANGE = "Trades!A1"
 # sheetData = [["Expiry1","Symbol","Strike1","Strike2","Right","Position","CostBase","UnitCost","UnitPrice","Gain"]]
 # updateValues(SHEETID,RANGE,sheetData)
 
-gc = pygsheets.authorize(outh_file='sheets.googleapis.com-python.json')
-
-sht1 = gc.open_by_key('1aZwZQ-KtXr-7_9ZYIZxMano85zckb86gj67kcwQczYI')
-
-wks = sht1.add_worksheet("new sheet",rows=50,cols=60)
+# gc = pygsheets.authorize(outh_file='inputs\\sheets.googleapis.com-python.json')
+# sht1 = gc.open_by_key(SHEETID)
+# wks = sht1.add_worksheet("new sheet",rows=50,cols=60)
 
 # # Open spreadsheet and then workseet
 # sh = gc.open('my new ssheet')

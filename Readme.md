@@ -19,3 +19,8 @@ There are three main scripts that I use regularly.
 2) buyList6030 - is a script for purchasing a list of spreads based on a prescreened list of underlying stocks. I used this in combination with the screening script inside my demo account but haven't achieved consistent results yet.
 
 3) spreadLogUpdate - is the update script that keeps my Google sheets dashboard up to date with account balances and a log of trades. This script is a work in progress.
+
+#### Installation Notes
+This library can be set up by cloning this repo, creating/activating a virtual environment inside the repo and then doing a pip install of the requirements.txt file.
+
+There is one notable exception which is the ibapi library that can only be downloaded from Interactive Brokers. To run it in a virtual environment it's necessary to copy the ibapi directory into the site-packages directory of the virtual environment.
