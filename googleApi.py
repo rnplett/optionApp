@@ -27,6 +27,14 @@ SCOPES = 'https://www.googleapis.com/auth/spreadsheets'
 CLIENT_SECRET_FILE = 'inputs\\stockDash-604bfd160091.json'
 APPLICATION_NAME = 'Google Sheets API Python Quickstart'
 
+def getAuthSession():
+    credentials = service_account.Credentials.from_service_account_file(
+        CLIENT_SECRET_FILE)
+    scoped_credentials = credentials.with_scopes(
+        [SCOPES])
+    authed_session = AuthorizedSession(scoped_credentials)
+    return(authed_session)
+
 
 def getValues(authed_session,sheetID,sheetRange):
 

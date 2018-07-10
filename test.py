@@ -11,13 +11,22 @@ logging.basicConfig(level=logging.DEBUG)
 from datetime import datetime, time
 from time import sleep
 
-runTime = "7:45"
-startTime = time(*(map(int, runTime.split(':'))))
-while startTime > datetime.today().time():  # you can add here any additional variable to break loop if necessary
-    sleep(1)  # you can change 1 sec interval to any other
+# runTime = "7:45"
+# startTime = time(*(map(int, runTime.split(':'))))
+# while startTime > datetime.today().time():  # you can add here any additional variable to break loop if necessary
+#     sleep(1)  # you can change 1 sec interval to any other
+#
+# print("and so it begins at {}".format(datetime.now()))
 
-print("and so it begins at {}".format(datetime.now()))
+# Google API tests
+#========================
 
+g = getAuthSession()
+r = getValues(g, SHEETID, RANGE)
+print(r)
+
+# IB API tests
+#==================================
 #app = TestApp("127.0.0.1", 7401, 1)
 
 # app.buy6030("AAPL","Bull",budget=350)
@@ -36,7 +45,7 @@ print("and so it begins at {}".format(datetime.now()))
 #buyList6030([],
 #            ['MNK', 'PM', 'GE', 'ED', 'COG', 'PG', 'LLY', 'LRCX', 'CELG', 'PCG'])
 
-textRoland("Message at 10:15", "This is the body")
+#textRoland("Message at 10:15", "This is the body")
 
 # RANGE = "Trades!A1"
 # sheetData = [["Expiry1","Symbol","Strike1","Strike2","Right","Position","CostBase","UnitCost","UnitPrice","Gain"]]

@@ -1,11 +1,11 @@
 ## Financial market libraries
 
-NOTE: I just reorganized my folders and broke a number of paths that need fixing. Please consider these scripts as educational and not a library to use out of the box.
+NOTE: Consider these scripts as educational and not a library to use out of the box. They are in constant flux and depend on a number of api credentials that are not intentionally included in this repo.
 
 The libraries in this repo are a combination of code I've found in other repos and my own. Once they start generating a lot of income for me I may keep them a little more privately but I hope they can be helpful for people who are dabbling in python automation of trading activities.
 
 #### API libraries
-I use IB's Trader Workstation (TWS) as my trading platform and as a result the IBapiMod library contains an API object definition that interacts with TWS locally on my PC.
+I use IB's Trader Workstation (TWS) as my trading platform and as a result the IBapiMod library contains an API object definition that interacts with TWS locally on my PC. The ibapi library must be downloaded from International Brokers and can not be reliably installed with pip.
 
 The googleApi library is used with limited success to interact with my financial dashboard in Google sheets to record current account balances and trade logs.
 
