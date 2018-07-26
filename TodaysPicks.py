@@ -102,7 +102,7 @@ def filterMA(a):
     # check bull status
     wBull = close0 > ma8w > ma21w
     dBull = ma8 > ma21 > ma55
-    pBull = (ma8 > close0 > ma21) & (close0 > 20)
+    pBull = ma8 > close0 > ma21 > 20
     if wBull:
         wStatus = "Bull"
     if wBull & dBull & pBull:
@@ -162,6 +162,7 @@ if __name__=='__main__':
 
     data = pd.read_csv('D:\\Users\\Roland\\Google Drive\\TodaysPicks.csv')
     data.Weekly_MA = data.Weekly_MA.str.strip()
+    data.All_MA = data.All_MA.str.strip()
 
     bull = data[data.Weekly_MA == "Bull"]
     print()
@@ -175,4 +176,18 @@ if __name__=='__main__':
     print("List of Bear Stocks with a Squeeze\n=================================")
     t = bear.loc[:,["Symbol","Squeeze"]].sort_values(by='Squeeze', ascending=False)
     print(t[t.Squeeze > 0])
+    print()
+
+    bull = data[data.All_MA == "Bull"]
+    print()
+    print("List of Bull Stocks with a pullback\n=================================")
+    t = bull.loc[:,["Symbol","Squeeze"]].sort_values(by='Squeeze', ascending=False)
+    print(t)
+    print()
+
+    bear = data[data.All_MA == "Bear"]
+    print()
+    print("List of Bear Stocks with a pullback\n=================================")
+    t = bear.loc[:,["Symbol","Squeeze"]].sort_values(by='Squeeze', ascending=False)
+    print(t)
     print()
