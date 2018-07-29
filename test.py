@@ -49,7 +49,7 @@ print(r)
 
 # RANGE = "Trades!A1"
 # sheetData = [["Expiry1","Symbol","Strike1","Strike2","Right","Position","CostBase","UnitCost","UnitPrice","Gain"]]
-# updateValues(SHEETID,RANGE,sheetData)
+#updateValues(SHEETID,RANGE,sheetData)
 
 # gc = pygsheets.authorize(outh_file='inputs\\sheets.googleapis.com-python.json')
 # sht1 = gc.open_by_key(SHEETID)
