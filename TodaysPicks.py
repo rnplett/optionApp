@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 
 from inputs.settings import *
 import quandl
@@ -26,7 +27,6 @@ weeklies.columns = ['Symbol']
 sp500 = pd.read_csv('https://datahub.io/core/s-and-p-500-companies/r/constituents.csv')
 symbolList = pd.merge(weeklies,sp500).iloc[:,[0]].transpose().values.tolist()[0]
 
-f = open('D:\\Users\\Roland\\Google Drive\\TodaysPicks.csv','w') # Workspaces workstation - Windows 10
 
 stocksPerDay = 20
 
@@ -121,46 +121,56 @@ def filterMA(a):
 
 if __name__=='__main__':
 
-    print()
-    print('Stock Trigger Status \n==================== \n')
-    print('Symbol  Price     Weekly_MA All_MA    Squeeze   10x       Stochastic  Profit')
+    try:
+        statbuf = os.stat(TODAYS_PICKS_PATH)
+        t = datetime.now().strftime("%y-%m-%d")
+        statbuf = os.stat(TODAYS_PICKS_PATH)
+        m = datetime.fromtimestamp(statbuf.st_mtime).strftime("%y-%m-%d")
+    except:
+        pass
 
-    t = "Symbol,Price,Weekly_MA,All_MA,Squeeze,TenX,Stochastic\n"
-    f.write(t)
+    if m != t:
+        print()
+        print('Stock Trigger Status \n==================== \n')
+        print('Symbol  Price     Weekly_MA All_MA    Squeeze   10x       Stochastic  Profit')
 
-    #  Calculate the date range for the quandl query
-    # *** today =
-    #
-    base = datetime.today()
-    dateList = [(base - timedelta(days=x)).strftime("%Y-%m-%d") for x in range(0, 200)]
+        t = "Symbol,Price,Weekly_MA,All_MA,Squeeze,TenX,Stochastic\n"
+        f = open(TODAYS_PICKS_PATH, 'w')  # Workspaces workstation - Windows 10
+        f.write(t)
 
-    for s in symbolList:
-        try:
-            p = quandl.get_table('SHARADAR/SEP', ticker=s, date=dateList,
-                                       qopts={"columns": ["ticker", "date", "open", "high", "low", "close"]})
-            p.columns = ["Symbol","Date","Open","High","Low","Close"]
-        except:
-            print("Quandl read error")
-        try:
-            r = filterMA(p)
-            p = squeeze(p)
-            sq = squeezeLen(p)
+        #  Calculate the date range for the quandl query
+        # *** today =
+        #
+        base = datetime.today()
+        dateList = [(base - timedelta(days=x)).strftime("%Y-%m-%d") for x in range(0, 200)]
 
-            wMA = r[3]
-            allMA = r[0]
-            stochastic = r[1]
-            price = r[2]
-            print("{0:<8s}{1:8.2f} {2:<10s}{3:<10s}    {4:}      {5:10s}{6:5.2f}".
-                  format(s, price, wMA, allMA, sq, "NA", stochastic))
-            t = "{0:<8s},{1:8.2f},{2:<10s},{3:<10s},{4:},{5:<10s},{6:5.2f}\n". \
-                format(s, price, wMA, allMA, sq, "   NA", stochastic)
-            f.write(t)
-        except Exception as e:
-            print(s + " - data error: " + str(e))
+        for s in symbolList:
+            try:
+                p = quandl.get_table('SHARADAR/SEP', ticker=s, date=dateList,
+                                           qopts={"columns": ["ticker", "date", "open", "high", "low", "close"]})
+                p.columns = ["Symbol","Date","Open","High","Low","Close"]
+            except:
+                print("Quandl read error")
+            try:
+                r = filterMA(p)
+                p = squeeze(p)
+                sq = squeezeLen(p)
 
-    f.close()
+                wMA = r[3]
+                allMA = r[0]
+                stochastic = r[1]
+                price = r[2]
+                print("{0:<8s}{1:8.2f} {2:<10s}{3:<10s}    {4:}      {5:10s}{6:5.2f}".
+                      format(s, price, wMA, allMA, sq, "NA", stochastic))
+                t = "{0:<8s},{1:8.2f},{2:<10s},{3:<10s},{4:},{5:<10s},{6:5.2f}\n". \
+                    format(s, price, wMA, allMA, sq, "   NA", stochastic)
+                f.write(t)
+            except Exception as e:
+                print(s + " - data error: " + str(e))
 
-    data = pd.read_csv('D:\\Users\\Roland\\Google Drive\\TodaysPicks.csv')
+        f.close()
+
+    data = pd.read_csv(TODAYS_PICKS_PATH)
     data.Weekly_MA = data.Weekly_MA.str.strip()
     data.All_MA = data.All_MA.str.strip()
 

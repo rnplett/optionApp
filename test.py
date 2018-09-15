@@ -1,9 +1,11 @@
-from IBapiMod import *
-from emailApi import *
+#from IBapiMod import *
+#from emailApi import *
 import logging
-from buyList6030 import buyList6030
-from googleApi import *
-import pygsheets
+import os
+import datetime
+#from buyList6030 import buyList6030
+#from googleApi import *
+#import pygsheets
 from inputs.settings import *
 
 logging.basicConfig(level=logging.DEBUG)
@@ -18,12 +20,16 @@ from time import sleep
 #
 # print("and so it begins at {}".format(datetime.now()))
 
+print(datetime.now().strftime("%y-%m-%d"))
+statbuf = os.stat(TODAYS_PICKS_PATH)
+print(datetime.fromtimestamp(statbuf.st_mtime).strftime("%y-%m-%d"))
+
 # Google API tests
 #========================
 
-g = getAuthSession()
-r = getValues(g, SHEETID, RANGE)
-print(r)
+# g = getAuthSession()
+# r = getValues(g, SHEETID, RANGE)
+# print(r)
 
 # IB API tests
 #==================================
